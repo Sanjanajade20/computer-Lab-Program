@@ -1,2 +1,4 @@
-a = int(input("Enter a rupes :"))
-print("In Dollar",a/48)
+n = int(input("Enter a Number :"))
+
+for i in range(n,0,-1):
+        print(i)

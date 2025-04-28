@@ -1,13 +1,22 @@
-x1=int(input("Enter x1:"))
-y1=int(input("Enter y1:"))
-x2=int(input("Enter x2:"))
-y2=int(input("Enter y2:"))
-x3=int(input("Enter x3:"))
-y3=int(input("Enter y3:"))
-m1=(y2-y1)/(x2-x1)
-m2=(y3-y2)/(x3-x2)
-m3=(y3-y1)/(x3-x1)
-if m1==m2==m3:
-    print("colinear")
-else:
-    print("Not colinear")
+def fact(n):
+    m = 1
+    while(n > 0):
+        m = m * n
+        n -= 1
+    return m
+
+n = float(input("Enter a value for theta in radians: "))
+i = 1
+sum = 0
+threshold = 1e-10  
+term = n**(2*i-1) / fact((2*i-1))
+
+while(abs(term) > threshold): #here abs() term is use for absolute value
+    if(i % 2 == 0):
+        sum -= term
+    else:
+        sum += term
+    i += 1
+    term = n**(2*i-1) / fact((2*i-1))
+
+print(sum)

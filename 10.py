@@ -1,10 +1,11 @@
-a=int(input("Enter length:"))
-b=int(input("Enter breath:"))
-p=2*(a+b)
-r=a*b
-if r>p:
-    print("area > perimeter")
-elif r<p:
-    print("area < perimeter")
-else:
-    print("area = perimeter")
+n = int(input("enter a number :"))
+def fibo(n):
+    a=1
+    b=1
+    while(n>0):
+        c=a+b
+        print(c)
+        a=b
+        b=c
+        n-=1
+fibo(n)
