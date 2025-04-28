@@ -1,9 +1,10 @@
-import random
-
-nums = [random.randint(1, 10) for _ in range(20)]
-print("Generated list:", nums)
-
-target = int(input("Enter number to find: "))
-
-positions = [i for i, x in enumerate(nums) if x == target]
-print(f"Number {target} found at positions:", positions)
+students = [(81, "Aaryan", 19),(82, "Priya", 19),(83, "Amit", 21)]
+x1, y1, z1 = students[0]
+x2, y2, z2 = students[1]
+x3, y3, z3 = students[2]
+rollno=[x1,x2,x3]
+name=[y1,y2,y3]
+age=[z1,z2,z3]
+print(rollno)
+print(name)
+print(age)

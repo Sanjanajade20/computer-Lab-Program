@@ -1,5 +1,5 @@
-fahrenheit = [32, 68, 95, 104, 212]
-print("Fahrenheit temperatures:", fahrenheit)
-
-celsius = [(f-32)*5/9 for f in fahrenheit]
-print("Celsius temperatures:", celsius)
+food_item = ("Pizza", 100)
+food_list = list(food_item)
+food_list[1] = 120
+modified_food_item = tuple(food_list)
+print(modified_food_item)
