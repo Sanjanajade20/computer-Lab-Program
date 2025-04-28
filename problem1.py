@@ -1,10 +1,15 @@
-namelist=[ "Alice" , ("Rohan",) , "Chlaire" , ("Ravi",) , "Sita", ("Ram",) ]
-boys=0
-girls=0
-for name in namelist:
-    if isinstance(name,tuple):
-        boys+=1
-    else:
-        girls+=1
-print("number of boys",boys)
-print("number of girls",girls)
+# Create three dictionaries
+d1 = {'a': 1, 'b': 2}
+d2 = {'c': 3, 'd': 4}
+d3 = {'e': 5, 'f': 6}
+
+# Concatenate them to create fourth dictionary
+d4 = {}
+d4.update(d1)
+d4.update(d2)
+d4.update(d3)
+
+print("Fourth dictionary:", d4)
+#Another way
+d4={**d1,**d2,**d3}
+print("Fourth dictionary:", d4)
