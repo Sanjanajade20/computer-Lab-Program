@@ -1,18 +1,7 @@
-prices = {
-    'apple': 1.20,
-    'banana': 0.50,
-    'milk': 2.50,
-    'bread': 1.80
-}
-quantities = {
-    'apple': 3,
-    'banana': 6,
-    'milk': 2,
-    'bread': 1
-}
-total = 0
-for item in prices:
-    if item in quantities:
-        total += prices[item] * quantities[item]
+def power(a, b):
+    if b == 0:
+        return 1
+    return a * power(a, b - 1)
 
-print(f"Total bill: ${total:.2f}")
+a, b = map(int, input().split())
+print(power(a, b))

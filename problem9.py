@@ -1,5 +1,9 @@
-list1 = [1, 2, 3, 4, 5, 6]
-list2 = [4, 5, 6, 7, 8]
-
-difference = [x for x in list1 if x not in list2]
-print("Elements in list1 not in list2:", difference)
+def fun():
+    print("Function fun called")
+def disp():
+    print("Function disp called")
+def msg():
+    print("Function msg called")
+functions = [fun, disp, msg]
+for f in functions:
+    f()

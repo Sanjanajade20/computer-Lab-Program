@@ -1,12 +1,8 @@
-names = set()
-names.add("rahil")
-names.add("aaryan")
-names.add("het")
-names.add("nirmit")
-names.add("aayush")
-names.remove("het")
-names.add("dhyaan")
-names.remove("nirmit")
-names.remove("aayush")
-print(names)
+def cnt_vowel(s):
+    vowel = "aeiouAEIOU"
+    if s == "":
+        return 0
+    return (s[0] in vowel) + cnt_vowel(s[1:])
 
+s = input()
+print(cnt_vowel(s))
