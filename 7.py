@@ -1,16 +1,12 @@
+# Create a class Weather that has a list containing weather parameters. Define an overloaded in operator that checks whether an item is present in the list.
 
-n = int(input("Enter value of n: "))
-r = int(input("Enter value of r: "))
+class Weather:
+    def __init__(self, parameters):
+        self.parameters = parameters
+    
+    def __contains__(self, item):
+        return item in self.parameters
 
-def factorial(num):
-    fact = 1
-    for i in range(1, num + 1):
-        fact *= i
-    return fact
-
-nCr = factorial(n) // (factorial(r) * factorial(n - r))
-
-nPr = factorial(n) // factorial(n - r)
-
-print(f"{n}C{r} = {nCr}")
-print(f"{n}P{r} = {nPr}")
+weather = Weather(['temperature', 'humidity', 'precipitation', 'wind speed', 'pressure'])
+print('temperature' in weather)  # Output: True
+print('cloud cover' in weather)  # Output: False

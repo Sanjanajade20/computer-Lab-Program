@@ -1,27 +1,49 @@
+# Write a program to create a class that can calculate the perimeter/circumference and area of a regular shape. The class should also have a provision to accept the data relevant to the shape.
 
-num = int(input("Enter a number: "))
+import math
 
+class RegularShape:
+    def __init__(self, shape_type):
+        self.shape_type = shape_type.lower()
+        self.parameters = {}
 
-if num <= 1:
-    is_prime = False
+    def accept_data(self):
+        if self.shape_type == "circle":
+            self.parameters['radius'] = float(input("Enter the radius of the circle: "))
+        elif self.shape_type == "polygon":
+            self.parameters['sides'] = int(input("Enter the number of sides: "))
+            self.parameters['length'] = float(input("Enter the length of each side: "))
+        else:
+            print("Unsupported shape.")
+
+    def calculate_perimeter(self):
+        if self.shape_type == "circle":
+            return 2 * math.pi * self.parameters['radius']
+        elif self.shape_type == "polygon":
+            return self.parameters['sides'] * self.parameters['length']
+        else:
+            return None
+
+    def calculate_area(self):
+        if self.shape_type == "circle":
+            return math.pi * self.parameters['radius'] ** 2
+        elif self.shape_type == "polygon":
+            n = self.parameters['sides']
+            s = self.parameters['length']
+            return (n * s ** 2) / (4 * math.tan(math.pi / n))
+        else:
+            return None
+
+# Example usage
+shape_type = input("Enter the shape (circle or polygon): ")
+shape = RegularShape(shape_type)
+shape.accept_data()
+
+perimeter = shape.calculate_perimeter()
+area = shape.calculate_area()
+
+if perimeter is not None and area is not None:
+    print(f"Perimeter: {perimeter:.2f}")
+    print(f"Area: {area:.2f}")
 else:
-    is_prime = True
-    for i in range(2, int(num ** 0.5) + 1):
-        if num % i == 0:
-            is_prime = False
-            break
-
-
-num_str = str(num)
-num_digits = len(num_str)
-sum_of_powers = 0
-for digit in num_str:
-    sum_of_powers += int(digit) ** num_digits
-is_armstrong = (sum_of_powers == num)
-
-is_palindrome = (str(num) == str(num)[::-1])
-
-
-print(f"{num} is prime: {is_prime}")
-print(f"{num} is Armstrong: {is_armstrong}")
-print(f"{num} is palindrome: {is_palindrome}")
+    print("Invalid shape entered.")
