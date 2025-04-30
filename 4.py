@@ -1,49 +1,20 @@
-# Write a program to create a class that can calculate the perimeter/circumference and area of a regular shape. The class should also have a provision to accept the data relevant to the shape.
+# Create a specific subdirectory and copy one file from another subdirectory to this newly created subdirectory.
 
-import math
+source_file = "10 File hendling/4th/source_folder/sample.txt"  
+destination_folder = "10 File hendling/4th/New_Subdirectory"
+destination_file = f"{destination_folder}/sample.txt"  
 
-class RegularShape:
-    def __init__(self, shape_type):
-        self.shape_type = shape_type.lower()
-        self.parameters = {}
+try:
+    with open(source_file, 'rb') as src_file:
+        content = src_file.read()
 
-    def accept_data(self):
-        if self.shape_type == "circle":
-            self.parameters['radius'] = float(input("Enter the radius of the circle: "))
-        elif self.shape_type == "polygon":
-            self.parameters['sides'] = int(input("Enter the number of sides: "))
-            self.parameters['length'] = float(input("Enter the length of each side: "))
-        else:
-            print("Unsupported shape.")
+    with open(destination_file, 'wb') as dest_file:
+        dest_file.write(content)
 
-    def calculate_perimeter(self):
-        if self.shape_type == "circle":
-            return 2 * math.pi * self.parameters['radius']
-        elif self.shape_type == "polygon":
-            return self.parameters['sides'] * self.parameters['length']
-        else:
-            return None
+    print("File copied successfully!")
 
-    def calculate_area(self):
-        if self.shape_type == "circle":
-            return math.pi * self.parameters['radius'] ** 2
-        elif self.shape_type == "polygon":
-            n = self.parameters['sides']
-            s = self.parameters['length']
-            return (n * s ** 2) / (4 * math.tan(math.pi / n))
-        else:
-            return None
+except FileNotFoundError:
+    print("Error: Source file or destination folder not found.")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
 
-# Example usage
-shape_type = input("Enter the shape (circle or polygon): ")
-shape = RegularShape(shape_type)
-shape.accept_data()
-
-perimeter = shape.calculate_perimeter()
-area = shape.calculate_area()
-
-if perimeter is not None and area is not None:
-    print(f"Perimeter: {perimeter:.2f}")
-    print(f"Area: {area:.2f}")
-else:
-    print("Invalid shape entered.")
